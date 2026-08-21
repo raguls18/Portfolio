@@ -49,24 +49,24 @@ const ContactForm = () => {
           <label htmlFor="name" className="form-label">
             Name *
           </label>
-          <input type="text" id="name" name="name" className="form-input" required />
+          <input suppressHydrationWarning type="text" id="name" name="name" className="form-input" required />
         </div>
 
         <div className="form-group">
           <label htmlFor="email" className="form-label">
             Email *
           </label>
-          <input type="email" id="email" name="email" className="form-input" required />
+          <input suppressHydrationWarning type="email" id="email" name="email" className="form-input" required />
         </div>
 
         <div className="form-group">
           <label htmlFor="message" className="form-label">
             Message *
           </label>
-          <textarea id="message" name="message" className="form-textarea" rows="5" required></textarea>
+          <textarea suppressHydrationWarning id="message" name="message" className="form-textarea" rows="5" required></textarea>
         </div>
 
-        <button type="submit" className="btn-primary" disabled={isSubmitting}>
+        <button suppressHydrationWarning type="submit" className="btn-primary" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send Message"}
         </button>
       </form>

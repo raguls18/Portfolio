@@ -64,14 +64,14 @@ export default function RootLayout({ children }) {
   }
 
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${poppins.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body suppressHydrationWarning className="font-sans antialiased">{children}</body>
     </html>
   )
 }

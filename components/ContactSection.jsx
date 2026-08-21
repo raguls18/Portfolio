@@ -200,6 +200,7 @@ export function ContactSection() {
                       Full Name *
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="text"
                       id="name"
                       name="name"
@@ -217,6 +218,7 @@ export function ContactSection() {
                       Email Address *
                     </label>
                     <input
+                      suppressHydrationWarning
                       type="email"
                       id="email"
                       name="email"
@@ -234,6 +236,7 @@ export function ContactSection() {
                       Message *
                     </label>
                     <textarea
+                      suppressHydrationWarning
                       id="message"
                       name="message"
                       value={formData.message}

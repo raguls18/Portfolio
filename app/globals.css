@@ -73,3 +73,7 @@
 .bg-300\% {
   background-size: 300% 300%;
 }
+
+nextjs-portal {
+  display: none !important;
+}

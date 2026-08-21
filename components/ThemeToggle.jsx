@@ -37,6 +37,7 @@ export function ThemeToggle() {
 
   return (
     <motion.button
+      suppressHydrationWarning
       onClick={toggleTheme}
       className="relative p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-300 shadow-lg shadow-slate-500/10 hover:shadow-slate-500/20"
       whileHover={{ scale: 1.05 }}

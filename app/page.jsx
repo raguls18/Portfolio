@@ -225,18 +225,18 @@ export default function Portfolio() {
   );
 
   const skillsData = [
-    { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
-    { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
-    { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
-    { name: "Python", icon: <FaPython className="text-blue-400" /> },
-    { name: "Java", icon: <FaJava className="text-red-500" /> },
-    { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-    { name: "MySQL", icon: <SiMysql className="text-cyan-600" /> },
-    { name: "React", icon: <FaReact className="text-cyan-400" /> },
-    { name: "Next.js", icon: <SiNextdotjs className="dark:text-white text-black" /> },
-    { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-300" /> },
-    { name: "Node.js", icon: <SiNodedotjs className="text-green-400" /> },
-    { name: "Gen AI", icon: <GenAiIcon className="text-purple-400" /> },
+    { name: "HTML", icon: <FaHtml5 className="text-orange-500" />, level: "90%" },
+    { name: "CSS", icon: <FaCss3Alt className="text-blue-500" />, level: "85%" },
+    { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" />, level: "88%" },
+    { name: "Python", icon: <FaPython className="text-blue-400" />, level: "92%" },
+    { name: "Java", icon: <FaJava className="text-red-500" />, level: "80%" },
+    { name: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: "82%" },
+    { name: "MySQL", icon: <SiMysql className="text-cyan-600" />, level: "85%" },
+    { name: "React", icon: <FaReact className="text-cyan-400" />, level: "88%" },
+    { name: "Next.js", icon: <SiNextdotjs className="dark:text-white text-black" />, level: "85%" },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-300" />, level: "90%" },
+    { name: "Node.js", icon: <SiNodedotjs className="text-green-400" />, level: "80%" },
+    { name: "Gen AI", icon: <GenAiIcon className="text-purple-400" />, level: "85%" },
   ];
 
   return (
@@ -667,7 +667,7 @@ export default function Portfolio() {
                       <motion.div
                         className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
                         initial={{ width: 0 }}
-                        whileInView={{ width: `${Math.random() * 30 + 70}%` }}
+                        whileInView={{ width: skill.level }}
                         transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
                       />
                     </motion.div>
