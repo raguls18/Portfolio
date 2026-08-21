@@ -43,6 +43,9 @@ export const metadata = {
     description: "Ragul S — AI & Data Science student. Explore projects, skills, and achievements.",
     images: ["https://raguls.xyz/profile.jpg"],
   },
+  verification: {
+    google: "791a5b5d13f0c085",
+  },
 }
 
 export default function RootLayout({ children }) {
