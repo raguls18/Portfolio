@@ -44,7 +44,7 @@ export const metadata = {
     images: ["https://raguls.xyz/profile.jpg"],
   },
   verification: {
-    google: "791a5b5d13f0c085",
+    google: "r9eCsqSmVNqipo9DFoncvrY0wGev6nnqjKyXtwNN1ak",
   },
 }
 
