@@ -29,11 +29,20 @@ export default function Portfolio() {
   const [showAllCerts, setShowAllCerts] = useState(false)
   const [selectedCertificate, setSelectedCertificate] = useState(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [scrolled, setScrolled] = useState(false)
   const { scrollY } = useScroll()
 
   // Parallax effect for hero section
   const heroY = useTransform(scrollY, [0, 500], [0, -150])
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0])
+
+  // Detect scroll for navbar shrink effect
+  useEffect(() => {
+    const unsubscribe = scrollY.on("change", (v) => {
+      setScrolled(v > 60)
+    })
+    return () => unsubscribe()
+  }, [scrollY])
 
   // Mouse tracking for interactive elements
   useEffect(() => {
@@ -271,23 +280,40 @@ export default function Portfolio() {
         />
       </div>
 
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50">
-        <nav className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
+      <motion.header
+        className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50"
+        animate={{
+          boxShadow: scrolled
+            ? "0 4px 30px rgba(0,0,0,0.12)"
+            : "0 1px 0px rgba(0,0,0,0.04)",
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <nav className="container mx-auto px-6">
+          <motion.div
+            className="flex items-center justify-between overflow-hidden"
+            animate={{ paddingTop: scrolled ? "10px" : "16px", paddingBottom: scrolled ? "10px" : "16px" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
             <motion.a
               href="#"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent flex-shrink-0"
+              animate={{ fontSize: scrolled ? "1.15rem" : "1.5rem" }}
+              transition={{ duration: 0.3 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               RAGUL S
             </motion.a>
+
             <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
               {['About', 'Skills', 'Projects', 'Certificate', 'Education', 'Contact'].map((item) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="relative hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  animate={{ opacity: scrolled ? 0.85 : 1, fontSize: scrolled ? "0.78rem" : "0.875rem" }}
+                  transition={{ duration: 0.3 }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -300,10 +326,17 @@ export default function Portfolio() {
                 </motion.a>
               ))}
             </div>
-            <ThemeToggle />
-          </div>
+
+            {/* ThemeToggle shrinks with the rest */}
+            <motion.div
+              animate={{ scale: scrolled ? 0.88 : 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ThemeToggle />
+            </motion.div>
+          </motion.div>
         </nav>
-      </header>
+      </motion.header>
 
       <main>
         {/* Hero Section with Enhanced Animations */}
