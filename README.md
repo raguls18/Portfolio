@@ -67,6 +67,33 @@ Follow these steps to set up the project locally.
 4. **Open your browser:**
    Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
+### 🐳 Docker Setup
+
+You can also run this application in a Docker container using Docker or Docker Compose:
+
+#### Using Docker Compose (Recommended)
+```bash
+# Build and start the container in detached mode
+docker compose up -d
+
+# View container logs
+docker compose logs -f
+
+# Stop the container
+docker compose down
+```
+
+#### Using Docker CLI
+```bash
+# Build the Docker image
+docker build -t portfolio .
+
+# Run the container on port 3000
+docker run -d -p 3000:3000 --name ragul-portfolio portfolio
+```
+
+Once running, access the portfolio at [http://localhost:3000](http://localhost:3000).
+
 ## 📂 Project Structure
 
 ```bash
